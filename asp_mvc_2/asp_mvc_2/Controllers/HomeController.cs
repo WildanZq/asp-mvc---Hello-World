@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using asp_mvc_2.Security;
 
 namespace asp_mvc_2.Controllers
 {
@@ -12,6 +13,17 @@ namespace asp_mvc_2.Controllers
 
         [Authorize]
         public ActionResult Welcome()
+        {
+            return View();
+        }
+
+        [AuthorizeRole("Admin")]
+        public ActionResult AdminOnly()
+        {
+            return View();
+        }
+
+        public ActionResult UnAuthorized()
         {
             return View();
         }
